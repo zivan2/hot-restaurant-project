@@ -12,21 +12,60 @@
     <form action="/reserve">
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Name</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Name">
+            <input type="email" class="form-control" id="name" placeholder="Name">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Number">
+            <input type="email" class="form-control" id="number" placeholder="Number">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
+            <input type="email" class="form-control" id="email" placeholder="Email">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Unique ID</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="ID">
+            <input type="email" class="form-control" id="unique-id" placeholder="ID">
         </div>
-        <button type='submit'>Submit Reservation</button>
+        <button type='submit' id="add-btn">Submit Reservation</button>
     </form>
+
+    <script type="text/javascript">
+        const addBtn = document.getElementById('add-btn');
+      
+      // Question: What is "e" short for?
+      addBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Question: What does this code do?
+        let resName = document.getElementById('name').value.trim();
+        let resNumber = document.getElementById('number').value.trim();
+        let resEmail = document.getElementById('email').value.trim();
+        let resId = document.getElementById('unique-id').value.trim();
+        
+        let newReservation = {
+          name: resName,
+          email: resEmail,
+          number: parseInt(resnumber),
+          id: parseInt(resId),
+        };
+
+        // Question: What does this code do??
+        fetch('/api/reservation', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newReservation),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log('add.html', data);
+            alert(`Adding reservation: ${data.name}`);
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+      });
+    </script>
 </body>
 </html>
