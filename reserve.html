@@ -9,21 +9,24 @@
 <body>
     <button type="button" class="btn btn-info" href="/home">Home</button>
     <h1>Make Reservation</h1>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Name</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Name">
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Number">
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Unique ID</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="ID">
-    </div>
+    <form action="/reserve">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Name</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Name">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Number">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Unique ID</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="ID">
+        </div>
+        <button type='submit'>Submit Reservation</button>
+    </form>
 </body>
 </html>
